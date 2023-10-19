@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   numbers.c                                          :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fwahl <fwahl@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 18:08:56 by fwahl             #+#    #+#             */
-/*   Updated: 2023/10/19 03:00:01 by fwahl            ###   ########.fr       */
+/*   Created: 2023/10/15 19:47:52 by fwahl             #+#    #+#             */
+/*   Updated: 2023/10/19 02:55:53 by fwahl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_put_nbr(unsigned long num, int base, int upper)
-{
-	const char	*set;
-	char		c;
-	int			len;
-	
-	set = "0123456789abcdef";
-	len = 0;
-	if (num > (unsigned long)base)
-		len += ft_put_nbr(num / base, base, upper);
-	c = set[num % base];
-	if (upper == 1)
-		c = ft_toupper(c);
-	len += write(STDOUT_FILENO, &c, 1);
-	return (len);
-}
+# include <stdarg.h>
+# include <unistd.h>
+
+int		ft_printf(const char *string, ...);
+int		ft_check_format(const char format, va_list *ap);
+int		ft_put_chr(int c);
+int		ft_put_str(char *str);
+int		ft_put_nbr(unsigned long num, int base, int upper);
+int		ft_put_ptr(unsigned long num);
+int		ft_toupper(int c);
+
+#endif

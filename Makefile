@@ -1,8 +1,8 @@
 
 CC = CC
 CFLAGS = -Wall -Wextra -Werror
-NAME = printf.a
-HEADER = printf.h
+NAME = libftprintf.a
+HEADER = ft_printf.h
 SRCS = chars.c numbers.c printf.c
 OBJS = $(SRCS:.c=.o)
 
