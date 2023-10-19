@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   chars.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fwahl <fwahl@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 19:47:52 by fwahl             #+#    #+#             */
-/*   Updated: 2023/10/19 01:25:59 by fwahl            ###   ########.fr       */
+/*   Created: 2023/10/17 19:07:24 by fwahl             #+#    #+#             */
+/*   Updated: 2023/10/19 01:23:11 by fwahl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_put_chr(int c)
+{
+	return (write(STDOUT_FILENO, &c, 1));
+}
 
-int		ft_printf(const char *string, ...);
-int		ft_check_format(const char format, va_list *ap);
-int		ft_put_chr(int c);
-int		ft_put_str(char *str);
-int		ft_toupper(int c);
-int		ft_put_nbr(unsigned long num, int base, int upper);
+int	ft_put_str(char *str)
+{
+	int	len;
+	
+	len = 0;
+	while(str[len] != '\0')
+	{
+		write(STDOUT_FILENO, &str[len], 1);
+		len++;
+	}
+	return(len);
+}
 
-#endif
+int	ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
+}
