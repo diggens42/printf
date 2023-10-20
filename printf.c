@@ -6,7 +6,7 @@
 /*   By: fwahl <fwahl@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 19:48:02 by fwahl             #+#    #+#             */
-/*   Updated: 2023/10/20 02:06:26 by fwahl            ###   ########.fr       */
+/*   Updated: 2023/10/20 02:36:03 by fwahl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_printf(const char *f, ...)
 	while (*format != '\0')
 	{
 		if (len == -1)
-			return(-1);
+			return (-1);
 		if (*format == '%')
 		{
 			format++;
@@ -58,5 +58,5 @@ int	ft_printf(const char *f, ...)
 		format++;
 	}
 	va_end(ap);
-	return(len);
+	return (len);
 }
