@@ -6,7 +6,7 @@
 /*   By: fwahl <fwahl@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:08:56 by fwahl             #+#    #+#             */
-/*   Updated: 2023/10/20 02:34:44 by fwahl            ###   ########.fr       */
+/*   Updated: 2023/10/20 16:58:44 by fwahl            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,19 @@ int	ft_put_nbr(long num)
 		num = -num;
 	}
 	len += ft_put_bas(num, 10, 0);
+	return (len);
+}
+
+int	ft_put_ptr(unsigned long num)
+{
+	int	len;
+	int	ret;
+
+	ret = ft_put_str("0x");
+	if (ret == -1)
+		return (-1);
+	len = ft_put_bas(num, 16, 0) + 2;
+	if (len == -1)
+		return (-1);
 	return (len);
 }
